@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     bool gameOver = false;
-    public float restartDelay = 2f;
+    public float restartDelay = 0.5f;
     public GameObject completeLevelUI;
 
     public void CompleteLevel()
