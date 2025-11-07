@@ -5,6 +5,13 @@ public class Player_Behavior : MonoBehaviour
     public Rigidbody _rb;
     public float forwardForce = 2000f;
     public float sidewaysForce = 1000f;
+    public AudioSource backgroundMusic;
+    public AudioSource deathSFX;
+
+    private void Start()
+    {
+        backgroundMusic.Play();
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -12,6 +19,8 @@ public class Player_Behavior : MonoBehaviour
         {
             forwardForce = 0;
             sidewaysForce = 0;
+            backgroundMusic.Stop();
+            deathSFX.Play();
             FindFirstObjectByType<GameManager>().GameOver();
         }
     }
